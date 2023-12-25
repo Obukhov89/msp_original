@@ -71,7 +71,10 @@
                 <CitySelect class="link-block-title "/>
             </div>
         </div>
-        <div class="news">
+        <div class="router-view">
+            <router-view/>
+        </div>
+        <div v-if="newsVisible" class="news">
             <Block/>
         </div>
         <div class="right-blocks">
@@ -153,16 +156,78 @@
             </div>
         </div>
     </div>
-
+    <div v-if="modalRegistration">
+        <ModalRegistration/>
+    </div>
+    <div v-if="errorReg">
+        <ErrorLogin/>
+    </div>
 </template>
 
 <script>
 import Header from "./components/Header.vue";
 import Block from "./components/Block.vue";
 import CitySelect from "./components/CitySelect.vue";
+import  {mapState, mapActions, mapGetters} from "vuex/dist/vuex.mjs";
+import ModalRegistration from "./components/Modals/ModalRegistration.vue";
+import ErrorLogin from "./components/Modals/ErrorLogin.vue";
 export default {
     name: "App",
-    components: {CitySelect, Block, Header}
+    components: {ErrorLogin, ModalRegistration, CitySelect, Block, Header},
+
+    data(){
+        return{
+            newsVisible: true
+        }
+    },
+
+    computed:{
+        ...mapState('auth', ['state'], 'displayingElements', ['state'], 'composition', ['state']),
+        ...mapGetters('auth', ['isAdmin']),
+
+
+
+        visibleNews(){
+            return this.$store.state.displayingElements.blockNews
+        },
+
+        modalRegistration(){
+            return this.$store.getters['displayingElements/modalRegistration']
+        },
+
+        errorReg(){
+            return this.$store.getters['displayingElements/errorReg']
+        }
+
+    },
+    watch:{
+        state: function () {
+            this.isModalVisible = this.$store.state.modalRegistration
+        },
+
+        visibleNews: function (){
+            this.newsVisible = this.$store.state.displayingElements.blockNews
+        },
+
+    },
+    methods: {
+        ...mapActions('auth', ['login', 'adminEnter',], 'composition', ['counterBooks'], 'contest', ['addAllContests']),
+
+        showModal(){
+            this.$store.dispatch('showModalRegistration', true)
+            this.isModalVisible = this.$store.state.modalRegistration
+        },
+
+        // getContests(){
+        //     axios.get('/getAllContests').then((response) => {
+        //         this.$store.dispatch('contest/addAllContests', response.data)
+        //     })
+        // },
+    },
+
+    // beforeMount() {
+    //     this.getContests()
+    // }
 }
 </script>
 

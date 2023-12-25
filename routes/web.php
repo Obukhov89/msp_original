@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RegRequestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,4 +16,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('app');
+});
+
+Route::post('/login', [\App\Http\Controllers\UserController::class, 'authenticate',
+    function(Request $request){ return $request->user(); }]);
+
+
+Route::controller(RegRequestController::class)->group(function () {
+    Route::post('/requestRegistration', 'createRequest');
+    Route::get('/getTurnRequest', 'getTurnRequest');
+    Route::post('/saveRequest', 'save');
 });

@@ -1,7 +1,7 @@
 <template>
-<!--    <div v-if="isAdmin" class="adminBtn">-->
-<!--        <button @click="pushAdmin">Панель андминистратора</button>-->
-<!--    </div>-->
+    <div v-if="isAdmin" class="adminBtn">
+        <button @click="pushAdmin">Панель андминистратора</button>
+    </div>
     <div class="container header">
         <div class="header__block">
             <p class="header__block-title">Платон мне друг...</p>
@@ -17,7 +17,7 @@
                 <h1 class="header__title">Портал Международного Союза писателей "Новый Современник"</h1>
                 <div class="header__group">
                     <img class="logo" src="../../../public/img/logo.png"/>
-<!--                    <LoginForm/>-->
+                    <LoginForm/>
                 </div>
                 <h1 class="header__title">При содействии литературного фонда имени Сергея Есенина</h1>
             </div>
@@ -54,8 +54,41 @@
 </template>
 
 <script>
+import router from "../router";
+import LoginForm from "./LoginForm.vue";
+import {mapActions, mapGetters} from "vuex/dist/vuex.mjs";
+
 export default {
-    name: "Header"
+    name: "Header",
+    components: {LoginForm},
+
+    computed:{
+        ...mapGetters('auth', ['isAdmin'], 'displayingElements', ['modalRegistaration']),
+
+        isAdmin(){
+            return this.$store.getters['auth/isAdmin']
+        },
+
+        state(){
+            return this.$store.state.modalRegistration
+        },
+    },
+
+    methods: {
+        ...mapActions('auth', ['login', 'adminEnter'], 'composition', ['counterBooks'],
+            'contest', ['addAllContests'], 'displayingElements', ['modalRegistration']),
+
+
+        pushAdmin(){
+            this.$store.dispatch('displayingElements/hideNews', false)
+            router.push({path: '/admin'})
+        },
+
+        goHomePage(){
+            router.push({path: '/'})
+            this.$store.dispatch('displayingElements/showNews', true)
+        }
+    }
 }
 </script>
 
