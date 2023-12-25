@@ -27,3 +27,10 @@ Route::controller(RegRequestController::class)->group(function () {
     Route::get('/getTurnRequest', 'getTurnRequest');
     Route::post('/saveRequest', 'save');
 });
+
+Route::get('/{vue_capture?}', function () {
+    return view('app');
+})->where('vue_capture', '[\/\w\.-]*');
+
+Route::post('/connection', [\App\Http\Controllers\MailController::class,
+    'send', function(Request $request){}]);

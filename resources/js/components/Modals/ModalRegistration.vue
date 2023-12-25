@@ -92,6 +92,12 @@ export default {
 
             axios.post('/requestRegistration', dataResponse).then((response) => {
                 console.log(response.data)
+                let data = {
+                    email: dataResponse.email
+                }
+                axios.post("/connection", data).then((response) => {
+                    console.log(response.data);
+                });
                 this.close();
             })
 
