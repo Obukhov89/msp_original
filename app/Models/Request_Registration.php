@@ -84,8 +84,18 @@ class Request_Registration extends Model
 
         $rightWrite = DB::table('users_and_roles')->insert(['idUser' => $maxId, 'idRole' => $dataUser['idRole']]);
 
-        return json_encode($rightWrite);
 
+        $delete_record = $this->reject_request($idRequest);
 
+        return json_encode($delete_record);
+    }
+
+    public function reject_request($idRequest)
+    {
+        $delete_record = DB::delete("delete from `request_registrations` where `idRequest`= :idRequest", [
+            'idRequest' => $idRequest
+        ]);
+
+        return json_encode($delete_record);
     }
 }

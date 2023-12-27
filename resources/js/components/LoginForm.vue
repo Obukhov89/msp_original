@@ -21,53 +21,54 @@
 </template>
 
 <script>
-import  {mapActions, mapState, mapGetters} from "vuex/dist/vuex.mjs";
+import {mapActions, mapState, mapGetters} from "vuex/dist/vuex.mjs";
 import axios from "axios";
 import router from "../router";
 import ModalRegistration from "./Modals/ModalRegistration.vue";
 import ErrorLogin from "./Modals/ErrorLogin.vue";
+import setSession from "./helpers/addSession.js";
 
 export default {
     name: "LoginForm",
     components: {ErrorLogin, ModalRegistration},
-    data(){
-        return{
+    data() {
+        return {
             login: '',
             password: '',
         }
     },
 
-    computed:{
+    computed: {
         ...mapState('auth', ['state'], 'displayingElements', ['state']),
 
         ...mapGetters('displayingElements', ['modalRegistration']),
 
-        isAdmin(){
+        isAdmin() {
             return this.$store.state.auth.isAdmin
         },
 
-        visibleNews(){
+        visibleNews() {
             return this.$store.state.displayingElements.blockNews
         },
     },
 
-    watch:{
+    watch: {
         state: function () {
             this.isModalVisible = this.$store.state.modalRegistration
         },
 
-        isAdmin: function (){
+        isAdmin: function () {
             this.isAdmin = this.$store.state.auth.isAdmin
         },
 
 
-        visibleNews: function (){
+        visibleNews: function () {
             this.newsVisible = this.$store.state.displayingElements.blockNews
         },
 
     },
 
-    methods:{
+    methods: {
         ...mapActions(
             'auth', ["login", 'adminEnter'],
             'composition', ['counterBooks'],
@@ -88,8 +89,11 @@ export default {
                         authorName: response.data.nameUser,
                         login: response.data.login,
                         books: response.data.books,
-                        oldId: response.data.oldId
+                        oldId: response.data.oldId,
+                        idRole: response.data.roles
                     };
+
+                    setSession(payload);
 
                     let payloadBook = {
                         countBooks: payload.books.length,
@@ -97,31 +101,27 @@ export default {
                     }
 
                     this.$store.dispatch('auth/login', payload)
-                    // this.$store.dispatch('composition/allBooks', payloadBook)
+                    this.$store.dispatch('composition/allBooks', payloadBook)
 
-                    response.data.roles.forEach((item) => {
-                        console.log(item);
-                        if (item === 1){
-                            this.$store.dispatch('auth/adminEnter', true)
-                            this.isAdmin = this.$store.state.auth.isAdmin
-                        }
-                    })
+                    if (payload.idRole === 1) {
+                        this.$store.dispatch('auth/adminEnter', true)
+                        this.isAdmin = this.$store.state.auth.isAdmin
+                    }
                     router.push({name: 'Profile'})
-                }
-                else {
+                } else {
                     this.$store.dispatch('displayingElements/modalError', true)
                 }
             })
         },
 
-        showModal(){
+        showModal() {
             console.log('ok');
             this.$store.dispatch('displayingElements/modalRegistration', true)
             this.$store.dispatch('displayingElements/hideNews', false)
         },
 
 
-        pushAdmin(){
+        pushAdmin() {
             this.$store.dispatch('hideNews')
             router.push({path: '/admin'})
         },
@@ -130,7 +130,7 @@ export default {
 </script>
 
 <style scoped>
-.registration_link :hover{
-    cursor:pointer;
+.registration_link :hover {
+    cursor: pointer;
 }
 </style>

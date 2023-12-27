@@ -16,6 +16,6 @@ class MailController extends Controller
             'text' => 'Новая заявка на регистрацию',
         ];
 
-        Mail::to(["obukhov081189@gmail.com", "obuhovdi@cspu.ru"])->locale('ru')->send(new ContactMail($details));
+        Mail::to(["obukhov081189@gmail.com", "mim62@mail.ru"])->locale('ru')->send(new ContactMail($details));
     }
 }

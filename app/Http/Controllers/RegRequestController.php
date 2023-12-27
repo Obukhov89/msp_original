@@ -20,22 +20,6 @@ class RegRequestController extends Controller
 
     public function createRequest(Request $request)
     {
-        $newRequest = new Request_Registration();
-
-
-//        $arrData = [
-//            'login' => $request->login,
-//            'password' => $request->password,
-//            'name' => $request->name,
-//            'nick' => $request->nick,
-//            'email' => $request->email,
-//            'aboutMe' => $request->aboutMe,
-//            'address' => $request->address,
-//            'link' => $request->link,
-//            'role' => $request->role,
-//            'status' => 'new'
-//        ];
-
         $query = DB::table('request_registrations')->insert([
             'login' => $request->login,
             'password' => $request->password,
@@ -61,5 +45,12 @@ class RegRequestController extends Controller
         $idRequest = $request->idRequest;
 
         return $this->requestObj->saveRequest($idRequest);
+    }
+
+    public function reject_request(Request $request)
+    {
+        $idRequest = $request->idRequest;
+
+        return $this->requestObj->reject_request($idRequest);
     }
 }

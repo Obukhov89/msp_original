@@ -78,7 +78,7 @@ class User extends Authenticatable
                     ['idUser' => $arrUser['idUser']]);
 
                 foreach ($roleList as $rol){
-                    $arrRoles[] = $rol->idRole;
+                    $arrRoles = $rol->idRole;
                 }
 
                 $arrUser['books'] = $arrBook;

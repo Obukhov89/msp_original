@@ -28,6 +28,7 @@ Route::controller(RegRequestController::class)->group(function () {
     Route::post('/requestRegistration', 'createRequest');
     Route::get('/getTurnRequest', 'getTurnRequest');
     Route::post('/saveRequest', 'save');
+    Route::post('/rejectRequest', 'reject_request');
 });
 
 //маршруты для произведений

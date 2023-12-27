@@ -1,6 +1,6 @@
 <template>
     <table class="tableRequest">
-        <tr v-for="item in arrRequest" :key="item.idRequest">
+        <tr v-for="item in getTurnRequest" :key="item.idRequest">
             <td>{{ item.idRequest }}</td>
             <td>{{ item.name }}</td>
             <td>{{ item.role }}</td>
@@ -9,7 +9,7 @@
                 <button class="acceptBtn" @click="saveRequest(item.idRequest)">Принять запрос</button>
             </td>
             <td>
-                <button class="rejectBtn">Отклонить запрос</button>
+                <button class="rejectBtn" @click="rejectRequest(item.idRequest)">Отклонить запрос</button>
             </td>
         </tr>
     </table>
@@ -17,6 +17,7 @@
 
 <script>
 import axios from "axios";
+import  {mapState, mapActions} from "vuex/dist/vuex.mjs";
 
 export default {
     name: "TableRequest",
@@ -28,18 +29,33 @@ export default {
         )
     },
 
+    computed:{
+        ...mapState('registration', ['state']),
+
+        getTurnRequest(){
+            return this.$store.state.registration.arrRequest;
+        }
+    },
+
     methods:{
+        ...mapActions('registration', ['setArrRequests', 'delRequestItem']),
         getTurn(){
             axios.get('/getTurnRequest').then((request) => {
-                request.data.forEach((item, index) => {
-                    this.arrRequest.push(item);
-                })
+                this.$store.dispatch('registration/setArrRequests', request.data)
             })
         },
         saveRequest(id){
             let idRequest = {'idRequest': id}
             axios.post('/saveRequest', idRequest).then((request) => {
-                console.log(request.data);
+                alert('Заявка на регистрацию принята');
+                this.$store.dispatch('registration/delRequestItem', id);
+            })
+        },
+        rejectRequest(idReject){
+            let idRequest = {'idRequest': idReject};
+            axios.post('/rejectRequest', idRequest).then((request) => {
+                alert('Заявка на регистрацию отклонена')
+                this.$store.dispatch('registration/delRequestItem', idReject)
             })
         }
     },

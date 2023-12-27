@@ -185,8 +185,6 @@ export default {
         ...mapState('auth', ['state'], 'displayingElements', ['state'], 'composition', ['state']),
         ...mapGetters('auth', ['isAdmin']),
 
-
-
         visibleNews(){
             return this.$store.state.displayingElements.blockNews
         },
@@ -218,16 +216,16 @@ export default {
             this.isModalVisible = this.$store.state.modalRegistration
         },
 
-        // getContests(){
-        //     axios.get('/getAllContests').then((response) => {
-        //         this.$store.dispatch('contest/addAllContests', response.data)
-        //     })
-        // },
+        getContests(){
+            axios.get('/getAllContests').then((response) => {
+                this.$store.dispatch('contest/addAllContests', response.data)
+            })
+        },
     },
 
-    // beforeMount() {
-    //     this.getContests()
-    // }
+    beforeMount() {
+        this.getContests()
+    }
 }
 </script>
 

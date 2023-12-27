@@ -6,6 +6,7 @@ export default {
         state.authorName = payload.authorName
         state.books = payload.books
         state.oldId = payload.oldId
+        state.idRole = payload.idRole
     },
 
     isAdmin(state, payload){
