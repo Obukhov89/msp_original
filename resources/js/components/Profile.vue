@@ -89,7 +89,7 @@ export default {
         },
 
         books() {
-            return this.$store.state.auth.books
+            return this.$store.state.composition.books
         },
 
         counterBooks() {
@@ -138,7 +138,7 @@ export default {
             this.$store.state.composition.books.forEach((item, idx) => {
                 this.nameComposition.push({count: idx + 1, book: item})
             })
-            this.countComposition = this.$store.state.auth.books.length
+            this.countComposition = this.$store.state.composition.books.length
         },
 
         visibleAddComposition() {

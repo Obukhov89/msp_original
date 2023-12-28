@@ -92,14 +92,12 @@ export default {
                         oldId: response.data.oldId,
                         idRole: response.data.roles
                     };
-
-                    setSession(payload);
-
                     let payloadBook = {
                         countBooks: payload.books.length,
                         book: payload.books
                     }
 
+                    setSession(payload, payloadBook);
                     this.$store.dispatch('auth/login', payload)
                     this.$store.dispatch('composition/allBooks', payloadBook)
 
@@ -107,6 +105,7 @@ export default {
                         this.$store.dispatch('auth/adminEnter', true)
                         this.isAdmin = this.$store.state.auth.isAdmin
                     }
+
                     router.push({name: 'Profile'})
                 } else {
                     this.$store.dispatch('displayingElements/modalError', true)

@@ -209,7 +209,9 @@ export default {
 
     },
     methods: {
-        ...mapActions('auth', ['login', 'adminEnter',], 'composition', ['counterBooks'], 'contest', ['addAllContests']),
+        ...mapActions('auth', ['login', 'adminEnter',],
+            'composition', ['counterBooks', 'allBooks'],
+            'contest', ['addAllContests']),
 
         showModal(){
             this.$store.dispatch('showModalRegistration', true)
@@ -221,10 +223,35 @@ export default {
                 this.$store.dispatch('contest/addAllContests', response.data)
             })
         },
+
+        reloadAuth(){
+            let payload = {
+                idAuthor: sessionStorage.getItem("idUser"),
+                authorName: sessionStorage.getItem("authorName"),
+                login: sessionStorage.getItem("login"),
+                oldId: sessionStorage.getItem("oldId"),
+                idRole: Number(sessionStorage.getItem("idRole"))
+            };
+
+            let booksPayload = {
+                countBooks:  Number(sessionStorage.getItem("countBooks")),
+                book: JSON.parse(sessionStorage.getItem("books"))
+            }
+
+            this.$store.dispatch('auth/login', payload)
+            this.$store.dispatch('composition/allBooks', booksPayload)
+
+            let isAdmin = sessionStorage.getItem("isAdmin")
+
+            if (payload.idRole === 1){
+                this.$store.dispatch('auth/adminEnter', true)
+            }
+        }
     },
 
     beforeMount() {
-        this.getContests()
+        this.reloadAuth();
+        this.getContests();
     }
 }
 </script>
