@@ -16,7 +16,7 @@
 
 <script>
 export default {
-    name: "Block"
+    name: "Block768"
 }
 </script>
 
@@ -24,11 +24,16 @@ export default {
 #block__news {
     position: absolute;
     background-color: #C6DCF2;
-    margin: 0 auto;
-    max-width: 970px;
-    left: 220px;
+
+    width: 750px;
 
 
+
+}
+
+.container{
+    width: 760px;
+    /* margin: 0 40px; */
 }
 #block__news h3 {
     text-align: center;
@@ -60,6 +65,7 @@ export default {
     color: white;
     text-decoration: none;
 }
+
 
 
 </style>

@@ -1,161 +1,97 @@
 <template>
-    <Header v-if="showHeader"/>
-    <Header768 v-if="showHeader768"/>
-    <div class="container blocks">
-        <LBlock v-if="showLBlock" />
+    <div class="left-blocks">
+            <div class="header__block left-block">
+                <p class="header__block-title">Буфет. Истории за нашим столом</p>
+                <!-- <img class="rk" src="../../public/img/bufet.jpg"/> -->
+                <li class="header-list">ОКТЯБРЬСКИЕ ПОСИДЕЛКИ</li>
+                <li class="header-list">Лучшие рассказчикив нашем Буфете</li>
+            </div>
 
-        <div class="router-view">
-            <router-view/>
+            <div class="header__block left-block">
+                <p class="header__block-title">Сергей Гамаюнов (Черкесский)</p>
+                <!-- <img class="rk" src="../../public/img/Sergey.jpg"/> -->
+                <li class="header-list">В Прощенное воскресенье</li>
+            </div>
+
+            <div class="header__block left-block">
+                <p class="header__block-title">Конкурсы на призы Литературного фонда имени Сергея Есенина</p>
+                <!-- <img class="rk" src="../../public/img/priz-lf1.jpg"/> -->
+                <li class="header-list">Литературный конкурс "Рассвет"</li>
+            </div>
+            <div class="link-block left-block">
+                <!-- <img class="rk" src="../../public/img/r-u.jpg"/> -->
+            </div>
+            <div class="link-block left-block">
+                <p class="link-block-title">Английский клуб</p>
+                <li class="link-block-list">&#9658; Положение о клубе</li>
+                <li class="link-block-list">&#9658; Зал Прозы</li>
+                <li class="link-block-list">&#9658; Зал Поэзии</li>
+                <li class="link-block-list">&#9658; Английская дуэль</li>
+                <li class="link-block-list">&#9658; Форум клуба</li>
+                <li class="link-block-list">&#9658; Атрибутика клуба</li>
+                <li class="link-block-list">&#9658; Архив клуба</li>
+                <li class="link-block-list">&#9658; Бар "За углом"</li>
+            </div>
+            <div class="link-block left-block">
+                <!-- <img class="rk" src="../../public/img/platon-grakov.jpg"/> -->
+            </div>
+            <div class="link-block left-block">
+                <!-- <img class="rk" src="../../public/img/reg.jpg"/> -->
+            </div>
+            <div class="link-block left-block">
+                <!-- <img class="rk" src="../../public/img/donat.jpg"/> -->
+            </div>
+            <div class="link-block left-block">
+                <!-- <img class="rk" src="../../public/img/h-s1.jpg"/> -->
+            </div>
+            <div class="link-block left-block">
+                <p class="link-block-title">Наши авторы</p>
+                <li class="link-block-list">&#9658; Знакомьтесь: нашего полку прибыло!</li>
+                <li class="link-block-list">&#9658; Первые шаги на портале</li>
+                <li class="link-block-list">&#9658; Правила портала</li>
+            </div>
+            <div class="link-block left-block">
+                <li class="link-block-list">&#9658; Размышления о литературном труде</li>
+            </div>
+            <div class="link-block left-block">
+                <li class="link-block-list">&#9658; Новости и объявления</li>
+                <li class="link-block-list">&#9658; Блиц-конкурсы</li>
+                <li class="link-block-list">&#9658; Тема недели</li>
+                <li class="link-block-list">&#9658; Диалоги, дискуссии, обсуждения</li>
+                <li class="link-block-list">&#9658; С днем рождения!</li>
+                <li class="link-block-list">&#9658; Клуб мудрецов</li>
+                <li class="link-block-list">&#9658; Наши Бенефисы</li>
+            </div>
+            <div class="link-block left-block">
+                <li class="link-block-list">&#9658; Книга предложений</li>
+            </div>
+            <div class="link-block left-block">
+                <CitySelect class="link-block-title "/>
+            </div>
         </div>
-        <div v-if="newsVisible" class="news">
-            <Block/>
-        </div>
-
-        <Block768 v-if="showBlock768" />
-
-
-        <RBlock v-if="showRBlock"/>
-
-    </div>
-    <div v-if="modalRegistration">
-        <ModalRegistration/>
-    </div>
-    <div v-if="errorReg">
-        <ErrorLogin/>
-    </div>
 </template>
 
 <script>
-import Header from "./components/Header.vue";
-import Header768 from "./components/Header768.vue";
-import LBlock from "./components/LBlock.vue"
-import Block from "./components/Block.vue";
-import CitySelect from "./components/CitySelect.vue";
-import  {mapState, mapActions, mapGetters} from "vuex/dist/vuex.mjs";
-import ModalRegistration from "./components/Modals/ModalRegistration.vue";
-import ErrorLogin from "./components/Modals/ErrorLogin.vue";
-import RBlock from './components/RBlock.vue';
-import Block768 from './components/Block768.vue';
-
-
 export default {
-    name: "App",
-    components: {ErrorLogin, ModalRegistration, CitySelect, Block, Header, Header768, LBlock, RBlock, Block768},
-
-    data(){
-        return{
-            newsVisible: true,
-            showHeader768:false,
-            showBlock768:false,
-        }
-    },
-    created() {
-        window.addEventListener('resize', this.onResize);
-        this.onResize();
-    },
-
-    computed:{
-        ...mapState('auth', ['state'], 'displayingElements', ['state'], 'composition', ['state']),
-        ...mapGetters('auth', ['isAdmin']),
-
-        visibleNews(){
-            return this.$store.state.displayingElements.blockNews
-        },
-
-        modalRegistration(){
-            return this.$store.getters['displayingElements/modalRegistration']
-        },
-
-        errorReg(){
-            return this.$store.getters['displayingElements/errorReg']
-        }
-
-    },
-    watch:{
-        state: function () {
-            this.isModalVisible = this.$store.state.modalRegistration
-        },
-
-        visibleNews: function (){
-            this.newsVisible = this.$store.state.displayingElements.blockNews
-        },
-
-    },
-    methods: {
-        onResize() {
-        this.showHeader = window.outerWidth>1024;
-        this.showHeader768 = window.outerWidth<=1024;
-        this.showBlock768 = window.outerWidth<=1024;
-        this.showLBlock = window.outerWidth>1024;
-        this.showRBlock = window.outerWidth>1024;
-        this.newsVisible =window.outerWidth>1024;
-    },
-        ...mapActions('auth', ['login', 'adminEnter',],
-            'composition', ['counterBooks', 'allBooks'],
-            'contest', ['addAllContests']),
-
-        showModal(){
-            this.$store.dispatch('showModalRegistration', true)
-            this.isModalVisible = this.$store.state.modalRegistration
-        },
-
-        getContests(){
-            axios.get('/getAllContests').then((response) => {
-                this.$store.dispatch('contest/addAllContests', response.data)
-            })
-        },
-
-        reloadAuth(){
-            let payload = {
-                idAuthor: sessionStorage.getItem("idUser"),
-                authorName: sessionStorage.getItem("authorName"),
-                login: sessionStorage.getItem("login"),
-                oldId: sessionStorage.getItem("oldId"),
-                idRole: Number(sessionStorage.getItem("idRole"))
-            };
-
-            let booksPayload = {
-                countBooks:  Number(sessionStorage.getItem("countBooks")),
-                book: JSON.parse(sessionStorage.getItem("books"))
-            }
-
-            this.$store.dispatch('auth/login', payload)
-            this.$store.dispatch('composition/allBooks', booksPayload)
-
-            let isAdmin = sessionStorage.getItem("isAdmin")
-
-            if (payload.idRole === 1){
-                this.$store.dispatch('auth/adminEnter', true)
-            }
-        },
-
-    },
-
-
-
-    beforeMount() {
-        this.reloadAuth();
-        this.getContests();
-    }
+    name: "LBlock"
 }
 </script>
 
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+<style scoped>
 body {
     margin: 0 auto;
     background-color: #c6dcf2;
     font-family: Montserrat, sans-serif;
-    width: 1600px;
 
 }
 
 .container {
     margin: 0 auto;
     width: 1400px;
-    /* border: 1px solid red; */
-    padding: 20px 5px;
+    /*border: 1px solid red;*/
+    padding: 20px 10px;
     /* background-color: rgb(5, 134, 163); */
+
 }
 
 li {
@@ -429,19 +365,6 @@ h4 {
 
 .link-block-title:not(:last-child) {
     border-bottom: 2px solid white;
-}
-
-@media (max-width:1025px) {
-
-    .container{
-        width: 700px;
-        padding: 20px 0;
-    }
-
-    body{
-        width: 700px;
-    }
-
 }
 
 
