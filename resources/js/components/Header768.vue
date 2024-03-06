@@ -229,10 +229,45 @@ img{
 }
 
 .container{
-    width: 750px;
+    /* width: 750px; */
 }
 .logo{
     width: 400px;
+}
+
+@media (max-width: 767px) {
+    .header__group{
+        display: flex;
+        flex-direction: column;
+    }
+    #navbar {
+        width: 80%;
+        margin: 0 auto;
+    }
+    #navbar ul{
+        grid-template-columns: 1fr 1fr;
+    }
+    .blocks{
+        width: 80%;
+        margin: 0 auto;
+
+    }
+
+
+}
+@media (max-width: 550px){
+    #navbar {
+        width: 60%;
+        margin: 0 auto;
+    }
+    #navbar ul{
+        grid-template-columns: 1fr 1fr;
+    }
+    .blocks{
+        width: 70%;
+        margin: 0 auto;
+
+    }
 }
 
 

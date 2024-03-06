@@ -25,14 +25,14 @@ export default {
     position: absolute;
     background-color: #C6DCF2;
 
-    width: 750px;
+    /* width: 750px; */
 
 
 
 }
 
 .container{
-    width: 760px;
+    /* width: 760px; */
     /* margin: 0 40px; */
 }
 #block__news h3 {
@@ -64,6 +64,27 @@ export default {
     font-weight: 300;
     color: white;
     text-decoration: none;
+}
+
+@media (max-width: 767px){
+    #block__news {
+        width: 600px;
+    }
+
+    .container{
+        width: 600px;
+    }
+
+
+}
+@media (max-width: 550px){
+    #block__news {
+        width: 400px;
+        display: block;
+        margin: 0 auto;
+        position: relative;
+
+    }
 }
 
 

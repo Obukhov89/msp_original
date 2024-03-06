@@ -48,6 +48,7 @@ export default {
             showHeader768:false,
             showBlock768:false,
         }
+
     },
     created() {
         window.addEventListener('resize', this.onResize);
@@ -443,6 +444,15 @@ h4 {
     }
 
 }
+@media (max-width: 767px){
+    body{
+        width: 600px;
+    }
+    .container{
+        width: 600px;
+    }
+}
+
 
 
 
