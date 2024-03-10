@@ -482,9 +482,18 @@ body{
     }
 }
 
-@media (max-width: 450) {
+@media (max-width: 450px) {
     body{
         width: 400px;
+    }
+    .container{
+        width: 300px;
+    }
+
+}
+@media (max-width: 370px) {
+    body{
+        width: 300px;
     }
     .container{
         width: 300px;

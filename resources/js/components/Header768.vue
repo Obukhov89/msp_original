@@ -350,7 +350,37 @@ export default {
 
     }
 }
+@media (max-width: 370px){
+    .header__logo{
+        width: 300px;
+    }
+    .container{
+        width: 300px;
+    }
+    .li-btn{
+        height: 60px;
+    }
+    .navbar__list{
+        width: 250px;
+    }
+    #navbar {
+        width: 250px;
+        margin: 0 auto;
+    }
+    .blocks{
+        width: 250px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
 
+    }
+    .logo{
+        width: 300px;
+    }
+    .rk{
+        width: 80%;
+    }
+}
 
 
 </style>

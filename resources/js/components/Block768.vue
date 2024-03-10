@@ -100,6 +100,15 @@ export default {
     width: 500px;
 }
 }
+@media (max-width: 370px){
+    #block__news {
+        width: 300px;
+
+    }
+    .container {
+    width: 300px;
+}
+}
 
 
 
