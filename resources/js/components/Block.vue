@@ -61,5 +61,19 @@ export default {
     text-decoration: none;
 }
 
+@media (max-width:1400px) {
+
+.container{
+   width: 550px;
+   padding: auto;
+
+
+    /* padding: 20px 0;
+    border: 2px solid yellow; */
+}
+
+
+}
+
 
 </style>

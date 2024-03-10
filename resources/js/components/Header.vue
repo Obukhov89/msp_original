@@ -224,9 +224,22 @@ export default {
     /* font-weight: 400; */
 }
 
-@media (min-width:768px){
+@media (max-width:1400px) {
 
+.container{
+    max-width: 1000px;
+    padding: 20px 0;
+    border: 2px solid yellow;
+}
 
+.header__group {
+    width: 600px;
+
+}
+.logo {
+    width: 250px;
+
+}
 }
 
 

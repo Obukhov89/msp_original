@@ -38,21 +38,21 @@
 
         <div class="blocks">
             <div class="header__block">
-            <p class="header__block-title">Платон мне друг...</p>
-            <img class="rk" src="../../../public/img/rk.jpg"/>
-            <li class="header-list">Конкурс «Рябина на коньяке»</li>
-            <li class="header-list">Приглашение на конкурс</li>
-            <li class="header-list">Произведения номинации «Проза»</li>
-            <li class="header-list">Произведения номинации «Поэзия»</li>
-        </div>
+                <p class="header__block-title">Платон мне друг...</p>
+                <img class="rk" src="../../../public/img/rk.jpg"/>
+                <li class="header-list">Конкурс «Рябина на коньяке»</li>
+                <li class="header-list">Приглашение на конкурс</li>
+                <li class="header-list">Произведения номинации «Проза»</li>
+                <li class="header-list">Произведения номинации «Поэзия»</li>
+            </div>
 
-        <div class="header__block">
-            <p class="header__block-title">Дежурный писатель</p>
-            <img class="rk" src="../../../public/img/deg-pisatel.jpg"/>
-            <li class="header-list">Мысли, афоризмы и цитаты о писательском труде</li>
-            <li class="header-list">Привычки и навыки, помогающие нам в писательском труде</li>
-            <li class="header-list">Золотые правила писателей</li>
-        </div>
+            <div class="header__block">
+                <p class="header__block-title">Дежурный писатель</p>
+                <img class="rk" src="../../../public/img/deg-pisatel.jpg"/>
+                <li class="header-list">Мысли, афоризмы и цитаты о писательском труде</li>
+                <li class="header-list">Привычки и навыки, помогающие нам в писательском труде</li>
+                <li class="header-list">Золотые правила писателей</li>
+            </div>
         </div>
 
     </div>
@@ -224,8 +224,16 @@ export default {
 .header__block{
     width: 100%;
 }
-img{
+.header__block{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
+    width: 80%;
+    margin: 0 auto;
+}
+.header-list{
+    width: 100%;
 }
 
 .container{
@@ -234,6 +242,7 @@ img{
 .logo{
     width: 400px;
 }
+
 
 @media (max-width: 767px) {
     .header__group{
@@ -265,6 +274,78 @@ img{
     }
     .blocks{
         width: 70%;
+        margin: 0 auto;
+
+    }
+}
+@media (max-width: 450px){
+    .header__logo{
+        width: 400px;
+    }
+    .container{
+        width: 400px;
+    }
+    .li-btn{
+        height: 50px;
+    }
+    .navbar__list{
+        width: 300px;
+    }
+    #navbar {
+        width: 300px;
+        margin: 0 auto;
+    }
+    .blocks{
+        width: 300px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+
+    }
+}
+@media (max-width: 650px){
+    .header__logo{
+        width: 400px;
+    }
+    .container{
+        width: 400px;
+    }
+    .li-btn{
+        height: 50px;
+    }
+    .navbar__list{
+        width: 300px;
+    }
+    #navbar {
+        width: 300px;
+        margin: 0 auto;
+    }
+    .blocks{
+        width: 300px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+    }
+}
+@media (max-width: 760px){
+    .header__logo{
+        width: 500px;
+    }
+    .container{
+        width: 500px;
+    }
+    .li-btn{
+        height: 50px;
+    }
+    .navbar__list{
+        width: 400px;
+    }
+    #navbar {
+        width: 400px;
+        margin: 0 auto;
+    }
+    .blocks{
+        width: 500px;
         margin: 0 auto;
 
     }

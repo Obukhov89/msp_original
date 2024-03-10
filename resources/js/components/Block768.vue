@@ -66,7 +66,7 @@ export default {
     text-decoration: none;
 }
 
-@media (max-width: 767px){
+/* @media (max-width: 767px){
     #block__news {
         width: 600px;
     }
@@ -76,8 +76,8 @@ export default {
     }
 
 
-}
-@media (max-width: 550px){
+} */
+/* @media (max-width: 550px){
     #block__news {
         width: 400px;
         display: block;
@@ -85,6 +85,20 @@ export default {
         position: relative;
 
     }
+} */
+@media (max-width: 650px){
+
+    #block__news {
+        width: 400px;
+    }
+}
+@media (max-width: 760px){
+    #block__news {
+        width: 500px;
+    }
+    .container {
+    width: 500px;
+}
 }
 
 

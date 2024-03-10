@@ -84,12 +84,12 @@ export default {
     },
     methods: {
         onResize() {
-        this.showHeader = window.outerWidth>1024;
-        this.showHeader768 = window.outerWidth<=1024;
-        this.showBlock768 = window.outerWidth<=1024;
-        this.showLBlock = window.outerWidth>1024;
-        this.showRBlock = window.outerWidth>1024;
-        this.newsVisible =window.outerWidth>1024;
+        this.showHeader = window.outerWidth>1050;
+        this.showHeader768 = window.outerWidth<=1050;
+        this.showBlock768 = window.outerWidth<=1050;
+        this.showLBlock = window.outerWidth>1050;
+        this.showRBlock = window.outerWidth>1050;
+        this.newsVisible =window.outerWidth>1050;
     },
         ...mapActions('auth', ['login', 'adminEnter',],
             'composition', ['counterBooks', 'allBooks'],
@@ -147,13 +147,13 @@ body {
     margin: 0 auto;
     background-color: #c6dcf2;
     font-family: Montserrat, sans-serif;
-    width: 1600px;
+    max-width: 1600px;
 
 }
 
 .container {
     margin: 0 auto;
-    width: 1400px;
+    max-width: 1400px;
     /* border: 1px solid red; */
     padding: 20px 5px;
     /* background-color: rgb(5, 134, 163); */
@@ -431,8 +431,34 @@ h4 {
 .link-block-title:not(:last-child) {
     border-bottom: 2px solid white;
 }
+/* @media (max-width:1400px) {
 
-@media (max-width:1025px) {
+.container{
+    width: 1000px;
+    padding: 20px 0;
+    border: 2px solid yellow;
+}
+
+body{
+    width: 1025px;
+}
+} */
+
+/* @media (max-width:1100px) {
+
+.container{
+    width: 700px;
+    padding: 20px 0;
+    border: 2px solid yellow;
+}
+
+body{
+    width: 1025px;
+}
+
+} */
+
+/* @media (max-width:1050px) {
 
     .container{
         width: 700px;
@@ -440,17 +466,30 @@ h4 {
     }
 
     body{
-        width: 700px;
+        width: 900px;
     }
 
-}
-@media (max-width: 767px){
+} */
+@media (max-width: 760px){
     body{
-        width: 600px;
+        max-width: 600px;
     }
     .container{
         width: 600px;
     }
+    .blocks{
+       width: 500px;
+    }
+}
+
+@media (max-width: 450) {
+    body{
+        width: 400px;
+    }
+    .container{
+        width: 300px;
+    }
+
 }
 
 
