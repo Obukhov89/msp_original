@@ -284,6 +284,7 @@ export default {
     }
     .container{
         width: 400px;
+        margin: 0;
     }
     .li-btn{
         height: 50px;
@@ -352,30 +353,30 @@ export default {
 }
 @media (max-width: 370px){
     .header__logo{
-        width: 300px;
+        width: 100%;
     }
     .container{
-        width: 300px;
+        width: 100%;
     }
     .li-btn{
         height: 60px;
     }
     .navbar__list{
-        width: 250px;
+        width: 100%;
     }
     #navbar {
-        width: 250px;
+        width: 100%;
         margin: 0 auto;
     }
     .blocks{
-        width: 250px;
+        width: 100%;
         margin: 0 auto;
         display: flex;
         flex-direction: column;
 
     }
     .logo{
-        width: 300px;
+        width: 100%
     }
     .rk{
         width: 80%;

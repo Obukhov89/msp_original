@@ -102,11 +102,11 @@ export default {
 }
 @media (max-width: 370px){
     #block__news {
-        width: 300px;
+        width: 95%;
 
     }
     .container {
-    width: 300px;
+    width: 100%;
 }
 }
 

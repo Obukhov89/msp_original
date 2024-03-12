@@ -493,10 +493,10 @@ body{
 }
 @media (max-width: 370px) {
     body{
-        width: 300px;
+        width: 100%;
     }
     .container{
-        width: 300px;
+        width: 100%;
     }
 
 }
