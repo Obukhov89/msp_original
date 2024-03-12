@@ -244,113 +244,64 @@ export default {
 }
 
 
-@media (max-width: 767px) {
+@media (max-width: 760px) {
     .header__group{
         display: flex;
         flex-direction: column;
     }
+    .header__logo{
+        width: 100%;
+    }
+    .container{
+        width: 100%;
+    }
+    .li-btn{
+        height: 50px;
+    }
+    .navbar__list{
+        width: 100%;
+    }
     #navbar {
-        width: 80%;
+        width: 100%;
         margin: 0 auto;
     }
     #navbar ul{
         grid-template-columns: 1fr 1fr;
     }
     .blocks{
-        width: 80%;
+        width: 100%;
         margin: 0 auto;
 
     }
 
 
 }
-@media (max-width: 550px){
-    #navbar {
-        width: 60%;
-        margin: 0 auto;
-    }
-    #navbar ul{
-        grid-template-columns: 1fr 1fr;
-    }
-    .blocks{
-        width: 70%;
-        margin: 0 auto;
 
-    }
-}
 @media (max-width: 450px){
     .header__logo{
-        width: 400px;
+        width: 100%;
     }
     .container{
-        width: 400px;
-        margin: 0;
+        width: 100%;
     }
     .li-btn{
         height: 50px;
     }
     .navbar__list{
-        width: 300px;
+        width: 100%;
     }
     #navbar {
-        width: 300px;
+        width: 100%;
         margin: 0 auto;
     }
     .blocks{
-        width: 300px;
-        margin: 0 auto;
-        display: flex;
-        flex-direction: column;
-
-    }
-}
-@media (max-width: 650px){
-    .header__logo{
-        width: 400px;
-    }
-    .container{
-        width: 400px;
-    }
-    .li-btn{
-        height: 50px;
-    }
-    .navbar__list{
-        width: 300px;
-    }
-    #navbar {
-        width: 300px;
-        margin: 0 auto;
-    }
-    .blocks{
-        width: 300px;
+        width: 100%;
         margin: 0 auto;
         display: flex;
         flex-direction: column;
     }
 }
-@media (max-width: 760px){
-    .header__logo{
-        width: 500px;
-    }
-    .container{
-        width: 500px;
-    }
-    .li-btn{
-        height: 50px;
-    }
-    .navbar__list{
-        width: 400px;
-    }
-    #navbar {
-        width: 400px;
-        margin: 0 auto;
-    }
-    .blocks{
-        width: 500px;
-        margin: 0 auto;
 
-    }
-}
 @media (max-width: 370px){
     .header__logo{
         width: 100%;

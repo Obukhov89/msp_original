@@ -431,63 +431,22 @@ h4 {
 .link-block-title:not(:last-child) {
     border-bottom: 2px solid white;
 }
-/* @media (max-width:1400px) {
 
-.container{
-    width: 1000px;
-    padding: 20px 0;
-    border: 2px solid yellow;
-}
-
-body{
-    width: 1025px;
-}
-} */
-
-/* @media (max-width:1100px) {
-
-.container{
-    width: 700px;
-    padding: 20px 0;
-    border: 2px solid yellow;
-}
-
-body{
-    width: 1025px;
-}
-
-} */
-
-/* @media (max-width:1050px) {
-
-    .container{
-        width: 700px;
-        padding: 20px 0;
-    }
-
-    body{
-        width: 900px;
-    }
-
-} */
 @media (max-width: 760px){
     body{
-        max-width: 600px;
+        max-width: 100%;
     }
     .container{
-        width: 600px;
-    }
-    .blocks{
-       width: 500px;
+        width: 100%;
     }
 }
 
 @media (max-width: 450px) {
     body{
-        width: 400px;
+        width: 100%;
     }
     .container{
-        width: 300px;
+        width: 100%;
     }
 
 }

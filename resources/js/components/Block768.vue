@@ -66,44 +66,18 @@ export default {
     text-decoration: none;
 }
 
-/* @media (max-width: 767px){
-    #block__news {
-        width: 600px;
-    }
-
-    .container{
-        width: 600px;
-    }
-
-
-} */
-/* @media (max-width: 550px){
-    #block__news {
-        width: 400px;
-        display: block;
-        margin: 0 auto;
-        position: relative;
-
-    }
-} */
-@media (max-width: 650px){
-
-    #block__news {
-        width: 400px;
-    }
-}
 @media (max-width: 760px){
     #block__news {
-        width: 500px;
+        width: 95%;
     }
     .container {
-    width: 500px;
+    width: 95%;}
 }
-}
+
+
 @media (max-width: 370px){
     #block__news {
         width: 95%;
-
     }
     .container {
     width: 100%;

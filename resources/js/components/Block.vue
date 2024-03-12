@@ -64,12 +64,11 @@ export default {
 @media (max-width:1400px) {
 
 .container{
-   width: 550px;
+   width: 60%;
    padding: auto;
-
-
-    /* padding: 20px 0;
-    border: 2px solid yellow; */
+}
+#block__news{
+    width: 63%;
 }
 
 

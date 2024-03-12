@@ -227,17 +227,20 @@ export default {
 @media (max-width:1400px) {
 
 .container{
-    max-width: 1000px;
+    width: 99%;
     padding: 20px 0;
-    border: 2px solid yellow;
+    /* border: 2px solid yellow; */
 }
 
+body{
+    width: 100%;
+}
 .header__group {
     width: 600px;
 
 }
 .logo {
-    width: 250px;
+    width: 300px;
 
 }
 }
