@@ -334,5 +334,37 @@ export default {
     }
 }
 
+@media (max-width: 320px){
+    .header__logo{
+        width: 100%;
+    }
+    .container{
+        width: 100%;
+    }
+    .li-btn{
+        height: 60px;
+    }
+    .navbar__list{
+        width: 100%;
+    }
+    #navbar {
+        width: 100%;
+        margin: 0 auto;
+    }
+    .blocks{
+        width: 100%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+
+    }
+    .logo{
+        width: 100%
+    }
+    .rk{
+        width: 80%;
+    }
+}
+
 
 </style>

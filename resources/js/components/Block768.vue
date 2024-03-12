@@ -83,6 +83,14 @@ export default {
     width: 100%;
 }
 }
+@media (max-width: 320px){
+    #block__news {
+        width: 95%;
+    }
+    .container {
+    width: 100%;
+}
+}
 
 
 

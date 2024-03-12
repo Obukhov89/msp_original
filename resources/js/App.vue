@@ -459,7 +459,15 @@ h4 {
     }
 
 }
+@media (max-width: 320px) {
+    body{
+        width: 100%;
+    }
+    .container{
+        width: 100%;
+    }
 
+}
 
 
 
