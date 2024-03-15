@@ -280,5 +280,89 @@ export default {
     color: #eeeeee;
     border-radius: 3px;
 }
+@media (max-width:1000px) {
+
+
+    .managementDiv{
+        gap: 10px;
+        width: 100%;
+    }
+    .manageBtn{
+        width:100%;
+    }
+    .managementDiv button:not(:first-child) {
+    margin-left: 0rem;
+}
+    .managementHeader{
+        width: 100%;
+    }
+    #homepage{
+        width: 100%;
+        margin: 0 auto;
+    }
+}
+@media (max-width: 760px){
+
+
+    .managementDiv{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        width: 100%;
+        margin-bottom: 80px;
+    }
+    .manageBtn{
+        width:100%;
+
+    }
+    .managementDiv button:not(:first-child) {
+    margin-left: 0rem;
+}
+    .managementHeader{
+        width: 100%;
+    }
+    #homepage{
+        width: 100%;
+        margin: 0 auto;
+    }
+
+}
+
+@media (max-width: 450px){
+
+
+    .managementDiv{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        width: 100%;
+        margin-bottom: 80px;
+    }
+    .manageBtn{
+        width:100%;
+
+    }
+    .managementDiv button:not(:first-child) {
+    margin-left: 0rem;
+}
+    .managementHeader{
+        width: 100%;
+    }
+    #homepage{
+        width: 100%;
+        margin: 0 auto;
+    }
+    .composition-table{
+        width: 100%;
+    }
+    .editBtn,
+    .deleteBtn{
+        width: 100px;
+        height: 50px;
+    }
+
+}
+
+
 
 </style>

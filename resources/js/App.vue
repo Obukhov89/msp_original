@@ -3,19 +3,15 @@
     <Header768 v-if="showHeader768"/>
     <div class="container blocks">
         <LBlock v-if="showLBlock" />
-
         <div class="router-view">
             <router-view/>
         </div>
         <div v-if="newsVisible" class="news">
             <Block/>
+            <Block768 v-if="showBlock768" />
         </div>
 
-        <Block768 v-if="showBlock768" />
-
-
         <RBlock v-if="showRBlock"/>
-
     </div>
     <div v-if="modalRegistration">
         <ModalRegistration/>
@@ -431,12 +427,18 @@ h4 {
 .link-block-title:not(:last-child) {
     border-bottom: 2px solid white;
 }
+.router-view{
+        width: 100%;
+    }
 
 @media (max-width: 760px){
     body{
         max-width: 100%;
     }
     .container{
+        width: 100%;
+    }
+    .router-view{
         width: 100%;
     }
 }
@@ -448,6 +450,9 @@ h4 {
     .container{
         width: 100%;
     }
+    .router-view{
+        width: 100%;
+    }
 
 }
 @media (max-width: 370px) {
@@ -457,6 +462,9 @@ h4 {
     .container{
         width: 100%;
     }
+    .router-view{
+        width: 100%;
+    }
 
 }
 @media (max-width: 320px) {
@@ -464,6 +472,9 @@ h4 {
         width: 100%;
     }
     .container{
+        width: 100%;
+    }
+    .router-view{
         width: 100%;
     }
 
