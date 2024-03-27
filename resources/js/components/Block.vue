@@ -27,6 +27,7 @@ export default {
     margin: 0 auto;
     max-width: 970px;
     left: 220px;
+    display:none;
 
 
 }

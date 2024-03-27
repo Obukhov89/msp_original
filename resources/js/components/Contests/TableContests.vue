@@ -103,4 +103,29 @@ export default {
     font-family: Montserrat, sans-serif;
     font-size: 14px;
 }
+@media (max-width: 1000px){
+    .container{
+        width: 90%;
+        margin: 0 auto;
+    }
+    thead{
+        display: none;
+    }
+    .table{
+        /* display: flex; */
+        margin-bottom: 20px;
+        width: 100%;
+    }
+    tr{
+        display: flex;
+        flex-direction: column;
+        border: 1px solid #777777;
+        margin-bottom: 40px;
+        border-radius: 5px;
+    }
+    .agreeBtn{
+        width: 100%;
+
+    }
+}
 </style>
