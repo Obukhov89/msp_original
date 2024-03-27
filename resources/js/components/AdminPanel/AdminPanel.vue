@@ -151,4 +151,27 @@ export default {
     font-size: 16px;
     border-right: 3px;
 }
+@media (max-width: 1000px){
+    #adminpanel{
+        width: 100%;
+        margin: 0;
+    }
+    .adminpanel__name{
+        width: 98%;
+
+
+    }
+    .adminpanel__title{
+        width: 100%;
+        margin: 0 auto
+
+
+    }
+
+    .adminpanel__title2{
+        width: 100%;
+        margin: 0 auto
+    }
+
+}
 </style>

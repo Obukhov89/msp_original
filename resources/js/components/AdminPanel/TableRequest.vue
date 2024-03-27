@@ -1,6 +1,19 @@
 <template>
-    <table class="tableRequest">
-        <tr v-for="item in getTurnRequest" :key="item.idRequest">
+    <div class="tableRequest">
+        <div v-for="item in getTurnRequest" :key="item.idRequest" class="table">
+            <div class="id">{{ item.idRequest }} </div>
+            <div class="name">{{ item.name }}</div>
+            <div class="role">{{ item.role }}</div>
+            <div class="about">{{ item.about }}</div>
+            <div class="btns">
+                <button class="acceptBtn" @click="saveRequest(item.idRequest)">Принять запрос</button>
+                <button class="rejectBtn" @click="rejectRequest(item.idRequest)">Отклонить запрос</button>
+            </div>
+        </div>
+
+
+
+        <!-- <tr v-for="item in getTurnRequest" :key="item.idRequest">
             <td>{{ item.idRequest }}</td>
             <td>{{ item.name }}</td>
             <td>{{ item.role }}</td>
@@ -11,8 +24,8 @@
             <td>
                 <button class="rejectBtn" @click="rejectRequest(item.idRequest)">Отклонить запрос</button>
             </td>
-        </tr>
-    </table>
+        </tr> -->
+    </div>
 </template>
 
 <script>
@@ -69,8 +82,29 @@ export default {
 .adminpanel__text h1{
     color: #000;
 }
+.table{
+    display: flex;
+    flex-direction: row;
+    align-content: flex-start;
+    justify-content: space-between;
+    align-items: stretch;
+}
+.table div{
+    border-top: solid 1px #e3e3e3;
+    width: 100%;
+    padding: 10px 0;
+    text-align: center;
+    vertical-align: middle;
 
-.li-btn{
+}
+.btns{
+    display: flex;
+    flex-direction: row;
+}
+
+
+
+/* .li-btn{
     background-color: #abcdf066;
     width: 100%;
     height: 40px;
@@ -86,21 +120,21 @@ export default {
     font-size: 13px;
     width: -webkit-fill-available;
     text-align: center;
-}
+} */
 
-.tableRequest{
+/* .tableRequest{
     width: 900px;
     padding-top: 3rem;
-}
+} */
 
-.tableRequest tr{
+/* .tableRequest tr{
     text-align: center;
 }
 
 .tableRequest td{
     border-bottom: 1px solid #718096;
    height: 80px;
-}
+} */
 
 .acceptBtn{
     width: 180px;
@@ -120,5 +154,28 @@ export default {
     color: white;
     font-size: 16px;
     border-right: 3px;
+}
+@media (max-width: 1000px){
+
+    .btns{
+        display: flex;
+        flex-direction: column;
+    }
+}
+@media (max-width: 600px){
+    .table{
+        display: flex;
+        flex-direction: column;
+        margin: 10px;
+        background-color : #e3e3e3 ;
+
+    }
+    .btns{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        margin: 0 auto;
+    }
+
 }
 </style>
