@@ -1,8 +1,8 @@
 <template>
     <div class="tableRequest">
         <div v-for="item in getTurnRequest" :key="item.idRequest" class="table">
-            <div class="id">{{ item.idRequest }} </div>
-            <div class="name">{{ item.name }}</div>
+            <!-- <div class="id">{{ item.idRequest }} </div> -->
+            <div class="name">({{ item.idRequest }}) {{ item.name }}</div>
             <div class="role">{{ item.role }}</div>
             <div class="about">{{ item.about }}</div>
             <div class="btns">
@@ -88,6 +88,7 @@ export default {
     align-content: flex-start;
     justify-content: space-between;
     align-items: stretch;
+    gap: 15px;
 }
 .table div{
     border-top: solid 1px #e3e3e3;

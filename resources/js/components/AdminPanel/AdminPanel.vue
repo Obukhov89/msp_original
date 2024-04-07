@@ -158,14 +158,10 @@ export default {
     }
     .adminpanel__name{
         width: 98%;
-
-
     }
     .adminpanel__title{
         width: 100%;
         margin: 0 auto
-
-
     }
 
     .adminpanel__title2{
@@ -173,5 +169,15 @@ export default {
         margin: 0 auto
     }
 
+    .li-btn {
+        height: 50px;
+    }
+    .adminpanel__window {
+    margin-top: 10px;
+    height: 10vh;
+    border: 2px solid white;
 }
+
+}
+
 </style>

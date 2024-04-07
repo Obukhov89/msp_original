@@ -20,32 +20,27 @@
         <div class="homepage__composition">
             <h3>Мои произведения</h3>
             <div class="composition-table">
-                <table class="tableComposition">
-                    <thead>
-                    <tr>
-                        <td class="composition-number">№</td>
-                        <td class="composition-name">Название произведения</td>
-                        <td class="composition-genre">Жанр</td>
-                        <td colspan="2" class="composition-genre">Действия с произведениями</td>
-                    </tr>
-                    </thead>
-                    <tr v-for="(item, index) in books " :key="index">
-                        <td>{{ index + 1 }}</td>
-                        <td>
+                <div class="tableComposition">
+                    <!-- <div class="tableComposition-header">
+                        <div class="composition-number">№</div>
+                        <div class="composition-name">Название произведения</div>
+                        <div class="composition-genre">Жанр</div>
+                        <div class="composition-edit">Действия</div>
+                    </div> -->
+                    <div class="composition-card" v-for="(item, index) in books " :key="index">
+                        <div class="composition-name">
                             <router-link
                                 :to="{name: 'composition', query:{authorId: this.authorId, textId: item.textId}}">
                                 {{ item.textTitle }}
                             </router-link>
-                        </td>
-                        <td></td>
-                        <td>
-                            <button @click="openEdit(item.textId)" class="editBtn">Редактировать</button>
-                        </td>
-                        <td>
-                            <button @click="dellComposition(item.textId)" class="deleteBtn">Удалить</button>
-                        </td>
-                    </tr>
-                </table>
+                        </div>
+                        <div class="composition-genre"></div>
+                        <div class="composition-edit">
+                            <button @click="openEdit(item.textId)" class="btn editBtn">Редактировать</button>
+                            <button @click="dellComposition(item.textId)" class="btn deleteBtn">Удалить</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -252,34 +247,44 @@ export default {
     border-collapse: collapse;
 }
 
-.tableComposition tr {
-    border-bottom: 1px solid gray;
-}
-
 .tableComposition td {
-
     border-bottom: 1px solid gray;
     text-align: center;
 }
 
-.editBtn {
+.btn{
     width: 140px;
     height: 30px;
-    background-color: #3b5e97;
     border: none;
     color: #eeeeee;
     border-radius: 3px;
-    float: right;
+}
+
+.editBtn {
+    background-color: #3b5e97;
+    margin-bottom: 5px;
 }
 
 .deleteBtn {
-    width: 140px;
-    height: 30px;
     background-color: #9f4848;
-    border: none;
-    color: #eeeeee;
-    border-radius: 3px;
 }
+
+.composition-card{
+    border: 1px solid #eeeeee;
+    text-align: center;
+    padding: 20px;
+    background-color: #eeeeee;
+}
+.composition-card div{
+
+    padding: 10px;
+}
+.tableComposition{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+}
+
 @media (max-width:1000px) {
 
 
@@ -325,6 +330,9 @@ export default {
         width: 100%;
         margin: 0 auto;
     }
+    .tableComposition{
+    grid-template-columns: 1fr 1fr;
+}
 
 }
 
@@ -361,6 +369,13 @@ export default {
         height: 50px;
     }
 
+    .tableComposition{
+    grid-template-columns: 1fr;
+    }
+
+.btn{
+    width: 150px;
+}
 }
 
 

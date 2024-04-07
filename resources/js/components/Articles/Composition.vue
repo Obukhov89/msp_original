@@ -94,5 +94,27 @@ export default {
     height: 45px;
     color: white;
 }
+@media (max-width: 1000px){
+    .container_article{
+    margin-left: 2rem;
+    padding: 1rem 0 0 1rem;
+    width: 87%;
+    height: 120%;
+    background-color: #eeeeee;
+    border: 3px solid #3b5e97;
+    white-space: pre-line;
+}
+
+.editBtn{
+    margin-left: 2rem;
+    background-color: #3b5e97;
+    border: none;
+
+    width: 200px;
+    font-size: 16px;
+    height: 45px;
+    color: white;
+}
+}
 
 </style>
