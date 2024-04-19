@@ -132,4 +132,9 @@ export default {
 .registration_link :hover {
     cursor: pointer;
 }
+@media (max-width: 300px){
+    .autorisation{
+        width: 90%;
+    }
+}
 </style>

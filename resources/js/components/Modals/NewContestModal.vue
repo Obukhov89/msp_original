@@ -8,7 +8,7 @@
                 <header
                     class="modal-header"
                     id="modalTitle">
-                    <slot name="header">
+                    <slot name="header" >
                         Новый конкурс:
                         <label class="labelForHead" for="author">Существующий (проводился ранее)</label>
                         <input type="radio" value="exist" id="author" @click="changeItem('exist')"
@@ -138,8 +138,8 @@ export default {
 
 .modalContest {
     margin-top: 10px;
-    width: 900px;
-    height: 600px;
+    width: 90%;
+    height: 80%;
     background: #FFFFFF;
     box-shadow: 2px 2px 20px 1px;
     overflow-x: auto;
@@ -178,7 +178,7 @@ export default {
 
 
 .column {
-    height: 550px;
+    height: 300px;
     margin-top: 1rem;
     display: flex;
     flex-direction: column;
@@ -205,5 +205,24 @@ export default {
     height: 45px;
     color: white;
 }
+@media (max-width: 850px){
+    .containerInput{
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+    }
+
+}
+@media (max-width: 540px){
+    .modal-header{
+        font-size: 10px;
+    }
+    .column {
+        height: 300px;
+        width: 300px;
+    }
+
+}
+
 
 </style>

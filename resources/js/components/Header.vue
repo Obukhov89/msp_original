@@ -244,6 +244,14 @@ body{
 
 }
 }
+@media (max-width:1150px) {
+
+.li-btn{
+
+    height: 40px;
+
+}
+}
 
 
 </style>

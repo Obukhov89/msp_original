@@ -10,7 +10,6 @@
             <Block/>
             <Block768 v-if="showBlock768" />
         </div>
-
         <RBlock v-if="showRBlock"/>
     </div>
     <div v-if="modalRegistration">
@@ -19,6 +18,7 @@
     <div v-if="errorReg">
         <ErrorLogin/>
     </div>
+    <LinksBlock v-if="LinksBlockVisible"></LinksBlock>
 </template>
 
 <script>
@@ -32,17 +32,19 @@ import ModalRegistration from "./components/Modals/ModalRegistration.vue";
 import ErrorLogin from "./components/Modals/ErrorLogin.vue";
 import RBlock from './components/RBlock.vue';
 import Block768 from './components/Block768.vue';
+import LinksBlock from "./components/LinksBlock.vue";
 
 
 export default {
     name: "App",
-    components: {ErrorLogin, ModalRegistration, CitySelect, Block, Header, Header768, LBlock, RBlock, Block768},
+    components: {ErrorLogin, ModalRegistration, CitySelect, Block, Header, Header768, LBlock, RBlock, Block768, LinksBlock},
 
     data(){
         return{
             newsVisible: true,
             showHeader768:false,
             showBlock768:false,
+            LinksBlockVisible:false
         }
 
     },
@@ -86,6 +88,7 @@ export default {
         this.showLBlock = window.outerWidth>1050;
         this.showRBlock = window.outerWidth>1050;
         this.newsVisible =window.outerWidth>1050;
+        this.LinksBlockVisible =window.outerWidth<=1050;
     },
         ...mapActions('auth', ['login', 'adminEnter',],
             'composition', ['counterBooks', 'allBooks'],

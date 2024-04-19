@@ -2,7 +2,6 @@
     <div class="btn_cont">
         <button @click="showModalContest" class="manageBtn">Добавить конкурс</button>
     </div>
-
     <table class="table contest_list">
         <thead>
         <td>№</td>
@@ -103,5 +102,12 @@ export default {
     font-size: 16px;
     font-family: 'Montserrat', sans-serif;
 }
+.contest_list{
+    width: 100%;
+}
+@media (max-width: 450px){
+    .contest_list{
+    font-size: 10px;
+}}
 
 </style>
