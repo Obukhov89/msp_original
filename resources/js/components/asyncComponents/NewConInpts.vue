@@ -77,7 +77,7 @@ export default {
 
 <style scoped>
 .compositionInput{
-    width:360px;
+    width:100%;
     padding-left: 5px;
     height: 35px;
     border: 1px solid #707e9b;
@@ -91,7 +91,7 @@ export default {
 }
 
 .inputReg{
-    width: 350px;
+    width:90%;
     height: 35px;
     border: 1px solid #707e9b;
     margin-left: 1rem;
@@ -105,4 +105,19 @@ export default {
     display: flex;
     flex-direction: column;
 }
+@media (max-width: 400px){
+    .compositionInput{
+        width: 95%
+    }
+    .inputReg{
+        width: 90%;
+    }
+    .column{
+    height: 270px;
+
+}
+
+}
+
+
 </style>
