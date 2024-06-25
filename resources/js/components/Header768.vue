@@ -3,14 +3,7 @@
         <button @click="pushAdmin">Панель андминистратора</button>
     </div>
     <div class="container header">
-        <div class="header__block">
-            <p class="header__block-title">Платон мне друг...</p>
-            <img class="rk" src="../../../public/img/rk.jpg"/>
-            <li class="header-list">Конкурс «Рябина на коньяке»</li>
-            <li class="header-list">Приглашение на конкурс</li>
-            <li class="header-list">Произведения номинации «Проза»</li>
-            <li class="header-list">Произведения номинации «Поэзия»</li>
-        </div>
+
 
         <div class="header__logo">
             <div class="logo-container header__content">
@@ -43,13 +36,25 @@
             </div>
         </div>
 
-        <div class="header__block">
-            <p class="header__block-title">Дежурный писатель</p>
-            <img class="rk" src="../../../public/img/deg-pisatel.jpg"/>
-            <li class="header-list">Мысли, афоризмы и цитаты о писательском труде</li>
-            <li class="header-list">Привычки и навыки, помогающие нам в писательском труде</li>
-            <li class="header-list">Золотые правила писателей</li>
+        <div class="blocks">
+            <div class="header__block">
+                <p class="header__block-title">Платон мне друг...</p>
+                <img class="rk" src="../../../public/img/rk.jpg"/>
+                <li class="header-list">Конкурс «Рябина на коньяке»</li>
+                <li class="header-list">Приглашение на конкурс</li>
+                <li class="header-list">Произведения номинации «Проза»</li>
+                <li class="header-list">Произведения номинации «Поэзия»</li>
+            </div>
+
+            <div class="header__block">
+                <p class="header__block-title">Дежурный писатель</p>
+                <img class="rk" src="../../../public/img/deg-pisatel.jpg"/>
+                <li class="header-list">Мысли, афоризмы и цитаты о писательском труде</li>
+                <li class="header-list">Привычки и навыки, помогающие нам в писательском труде</li>
+                <li class="header-list">Золотые правила писателей</li>
+            </div>
         </div>
+
     </div>
 </template>
 
@@ -100,13 +105,6 @@ export default {
     border: 2px solid gray;
 }
 
-.logo-container {
-    /* width: 800px; */
-    align-items: center;
-    text-align: center;
-    margin: 0 auto;
-
-}
 
 .header {
     /* height: 100px; */
@@ -127,13 +125,7 @@ export default {
     margin: 0 auto;
 }
 
-.header__group {
-    display: flex;
-    justify-content: space-between;
 
-    align-items: center;
-    margin: 0 auto;
-}
 
 .header__subtitle {
 
@@ -141,12 +133,6 @@ export default {
     letter-spacing: 1px;
 }
 
-.logo {
-    /* margin-left: 100px; */
-    /* margin-top: 10px; */
-    width: 550px;
-    /* height: 80px; */
-}
 
 .autorisation {
     padding-top: 5px;
@@ -223,34 +209,161 @@ export default {
     line-height: 1.5em;
     /* font-weight: 400; */
 }
-
-@media (max-width:1400px) {
-
-.container{
-    width: 99%;
-    padding: 20px 0;
-    /* border: 2px solid yellow; */
+.header{
+    display: flex;
+    flex-direction: column;
 }
 
-body{
+.blocks{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+
+}
+
+.header__block{
     width: 100%;
 }
-.header__group {
-    width: 600px;
+.header__block{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 80%;
+    margin: 0 auto;
+}
+.header-list{
+    width: 100%;
+}
+
+.container{
+    /* width: 750px; */
+}
+.logo{
+    width: 400px;
+}
+
+
+@media (max-width: 760px) {
+    .header__group{
+        display: flex;
+        flex-direction: column;
+    }
+    .header__logo{
+        width: 100%;
+    }
+    .container{
+        width: 100%;
+    }
+    .li-btn{
+        height: 50px;
+    }
+    .navbar__list{
+        width: 100%;
+    }
+    #navbar {
+        width: 100%;
+        margin: 0 auto;
+    }
+    #navbar ul{
+        grid-template-columns: 1fr 1fr;
+    }
+    .blocks{
+        width: 100%;
+        margin: 0 auto;
+
+    }
+
 
 }
-.logo {
-    width: 300px;
 
+@media (max-width: 450px){
+    .header__logo{
+        width: 100%;
+    }
+    .container{
+        width: 100%;
+    }
+    .li-btn{
+        height: 50px;
+    }
+    .navbar__list{
+        width: 100%;
+    }
+    #navbar {
+        width: 100%;
+        margin: 0 auto;
+    }
+    .blocks{
+        width: 100%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+    }
 }
+
+@media (max-width: 370px){
+    .header__logo{
+        width: 100%;
+    }
+    .container{
+        width: 100%;
+    }
+    .li-btn{
+        height: 60px;
+    }
+    .navbar__list{
+        width: 100%;
+    }
+    #navbar {
+        width: 100%;
+        margin: 0 auto;
+    }
+    .blocks{
+        width: 100%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+
+    }
+    .logo{
+        width: 100%
+    }
+    .rk{
+        width: 80%;
+    }
 }
-@media (max-width:1150px) {
 
-.li-btn{
+@media (max-width: 320px){
+    .header__logo{
+        width: 100%;
+    }
+    .container{
+        width: 100%;
+    }
+    .li-btn{
+        height: 60px;
+    }
+    .navbar__list{
+        width: 100%;
+    }
+    #navbar {
+        width: 100%;
+        margin: 0 auto;
+    }
+    .blocks{
+        width: 100%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
 
-    height: 40px;
-
-}
+    }
+    .logo{
+        width: 100%
+    }
+    .rk{
+        width: 80%;
+    }
 }
 
 

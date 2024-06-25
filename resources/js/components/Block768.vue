@@ -16,7 +16,7 @@
 
 <script>
 export default {
-    name: "Block"
+    name: "Block768"
 }
 </script>
 
@@ -24,12 +24,16 @@ export default {
 #block__news {
     position: absolute;
     background-color: #C6DCF2;
-    margin: 0 auto;
-    max-width: 970px;
-    left: 220px;
-    display:none;
+
+    /* width: 750px; */
 
 
+
+}
+
+.container{
+    /* width: 760px; */
+    /* margin: 0 40px; */
 }
 #block__news h3 {
     text-align: center;
@@ -62,18 +66,32 @@ export default {
     text-decoration: none;
 }
 
-@media (max-width:1400px) {
-
-.container{
-   width: 60%;
-   padding: auto;
-}
-#block__news{
-    width: 63%;
+@media (max-width: 760px){
+    #block__news {
+        width: 95%;
+    }
+    .container {
+    width: 95%;}
 }
 
 
+@media (max-width: 370px){
+    #block__news {
+        width: 95%;
+    }
+    .container {
+    width: 100%;
 }
+}
+@media (max-width: 320px){
+    #block__news {
+        width: 95%;
+    }
+    .container {
+    width: 100%;
+}
+}
+
 
 
 </style>

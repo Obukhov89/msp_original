@@ -1,168 +1,142 @@
 <template>
-    <Header/>
+    <Header v-if="showHeader"/>
+    <Header768 v-if="showHeader768"/>
     <div class="container blocks">
-        <div class="left-blocks">
-            <div class="header__block left-block">
-                <p class="header__block-title">Буфет. Истории за нашим столом</p>
-                <img class="rk" src="../../public/img/bufet.jpg"/>
-                <li class="header-list">ОКТЯБРЬСКИЕ ПОСИДЕЛКИ</li>
-                <li class="header-list">Лучшие рассказчикив нашем Буфете</li>
-            </div>
-
-            <div class="header__block left-block">
-                <p class="header__block-title">Сергей Гамаюнов (Черкесский)</p>
-                <img class="rk" src="../../public/img/Sergey.jpg"/>
-                <li class="header-list">В Прощенное воскресенье</li>
-            </div>
-
-            <div class="header__block left-block">
-                <p class="header__block-title">Конкурсы на призы Литературного фонда имени Сергея Есенина</p>
-                <img class="rk" src="../../public/img/priz-lf1.jpg"/>
-                <li class="header-list">Литературный конкурс "Рассвет"</li>
-            </div>
-            <div class="link-block left-block">
-                <img class="rk" src="../../public/img/r-u.jpg"/>
-            </div>
-            <div class="link-block left-block">
-                <p class="link-block-title">Английский клуб</p>
-                <li class="link-block-list">&#9658; Положение о клубе</li>
-                <li class="link-block-list">&#9658; Зал Прозы</li>
-                <li class="link-block-list">&#9658; Зал Поэзии</li>
-                <li class="link-block-list">&#9658; Английская дуэль</li>
-                <li class="link-block-list">&#9658; Форум клуба</li>
-                <li class="link-block-list">&#9658; Атрибутика клуба</li>
-                <li class="link-block-list">&#9658; Архив клуба</li>
-                <li class="link-block-list">&#9658; Бар "За углом"</li>
-            </div>
-            <div class="link-block left-block">
-                <img class="rk" src="../../public/img/platon-grakov.jpg"/>
-            </div>
-            <div class="link-block left-block">
-                <img class="rk" src="../../public/img/reg.jpg"/>
-            </div>
-            <div class="link-block left-block">
-                <img class="rk" src="../../public/img/donat.jpg"/>
-            </div>
-            <div class="link-block left-block">
-                <img class="rk" src="../../public/img/h-s1.jpg"/>
-            </div>
-            <div class="link-block left-block">
-                <p class="link-block-title">Наши авторы</p>
-                <li class="link-block-list">&#9658; Знакомьтесь: нашего полку прибыло!</li>
-                <li class="link-block-list">&#9658; Первые шаги на портале</li>
-                <li class="link-block-list">&#9658; Правила портала</li>
-            </div>
-            <div class="link-block left-block">
-                <li class="link-block-list">&#9658; Размышления о литературном труде</li>
-            </div>
-            <div class="link-block left-block">
-                <li class="link-block-list">&#9658; Новости и объявления</li>
-                <li class="link-block-list">&#9658; Блиц-конкурсы</li>
-                <li class="link-block-list">&#9658; Тема недели</li>
-                <li class="link-block-list">&#9658; Диалоги, дискуссии, обсуждения</li>
-                <li class="link-block-list">&#9658; С днем рождения!</li>
-                <li class="link-block-list">&#9658; Клуб мудрецов</li>
-                <li class="link-block-list">&#9658; Наши Бенефисы</li>
-            </div>
-            <div class="link-block left-block">
-                <li class="link-block-list">&#9658; Книга предложений</li>
-            </div>
-            <div class="link-block left-block">
-                <CitySelect class="link-block-title "/>
-            </div>
+        <LBlock v-if="showLBlock" />
+        <div class="router-view">
+            <router-view/>
         </div>
-        <div class="news">
+        <div v-if="newsVisible" class="news">
             <Block/>
+            <Block768 v-if="showBlock768" />
         </div>
-        <div class="right-blocks">
-            <div class="header__block right-block">
-                <p class="header__block-title">Невеста почтенного возраста</p>
-                <img class="rk" src="../../public/img/nevesta.jpg"/>
-                <li class="header-list">Невеста почтенного возраста</li>
-            </div>
-
-            <div class="link-block right-block">
-                <img class="rk" src="../../public/img/new.gif"/>
-                <li class="link-block-list">&#9658; Устав, Положения, документы для приема</li>
-                <li class="link-block-list">&#9658; Билеты МСП</li>
-                <li class="link-block-list">&#9658; Форум для членов МСП</li>
-            </div>
-
-            <div class="link-block right-block">
-                <p class="link-block-title">Состав МСП <br>"Новый Современник"</p>
-                <li class="link-block-list">&#9658; Список Действительных членов МСП</li>
-                <li class="link-block-list">&#9658; Список членов МСП</li>
-                <li class="link-block-list">&#9658; Планета Рать</li>
-            </div>
-
-            <div class="link-block right-block">
-                <p class="link-block-title">Региональные отделения МСП "Новый Современник"</p>
-            </div>
-            <div class="link-block right-block">
-                <p class="link-block-title">Литературные объединения "Новый Современник"</p>
-            </div>
-            <div class="link-block right-block">
-                <p class="link-block-title">Льготы для членов "Новый Современник"</p>
-            </div>
-            <div class="link-block right-block">
-                <p class="link-block-title">Реквизиты и способы оплаты по МСП, издательству и порталу</p>
-            </div>
-            <div class="link-block right-block">
-                <p class="link-block-title">Организация конкурсов и рейтинги</p>
-            </div>
-            <div class="link-block right-block">
-                <img class="rk" src="../../public/img/redCat.jpg"/>
-            </div>
-            <div class="link-block right-block">
-                <img class="rk" src="../../public/img/whoIsWho.jpg"/>
-            </div>
-            <div class="link-block right-block">
-                <p class="link-block-title">Литературные объединения</p>
-                <li class="link-block-list">&#9658; Союз писателей ДНР</li>
-                <li class="link-block-list">&#9658; "Серебряная ладья"</li>
-                <li class="link-block-list">&#9658; "Остров вдохновения"</li>
-                <li class="link-block-list">&#9658; Союз литераторов <br> "Перо и слово"</li>
-                <p class="link-block-title">Литературные организации и проекты по регионам России</p>
-                <li class="link-block-list">&#9658; Воронежская область</li>
-                <li class="link-block-list">&#9658; Рязанская область</li>
-                <li class="link-block-list">&#9658; Рязанская область</li>
-            </div>
-            <div class="link-block right-block">
-                <img class="rk" src="../../public/img/kab-kritikov.jpg"/>
-            </div>
-            <div class="link-block right-block">
-                <img class="rk" src="../../public/img/u-kamina.jpg"/>
-            </div>
-            <div class="link-block right-block">
-                <img class="rk" src="../../public/img/master-k.jpg"/>
-            </div>
-            <div class="link-block right-block">
-                <p class="link-block-title">Наградные билеты МСП "Новый Современник"</p>
-                <p class="link-block-title">Николай Вуколов</p>
-                <p class="link-block-title">Валентина Тимонина</p>
-                <p class="link-block-title">Сергей Малашко</p>
-                <p class="link-block-title">Ол Томский</p>
-                <p class="link-block-title">Дмитрий Долгов</p>
-                <p class="link-block-title">Сергей Ворошилов</p>
-            </div>
-            <div class="link-block right-block">
-                <p class="link-block-title">Как стать автором книги всего за 100 слов</p>
-                <img class="rk" src="../../public/img/100slov.jpg"/>
-                <p class="link-block-title">Положение о проекте</p>
-                <p class="link-block-title">Общий форум проекта</p>
-            </div>
-        </div>
+        <RBlock v-if="showRBlock"/>
     </div>
-
+    <div v-if="modalRegistration">
+        <ModalRegistration/>
+    </div>
+    <div v-if="errorReg">
+        <ErrorLogin/>
+    </div>
+    <LinksBlock v-if="LinksBlockVisible"></LinksBlock>
 </template>
 
 <script>
 import Header from "./components/Header.vue";
+import Header768 from "./components/Header768.vue";
+import LBlock from "./components/LBlock.vue"
 import Block from "./components/Block.vue";
 import CitySelect from "./components/CitySelect.vue";
+import  {mapState, mapActions, mapGetters} from "vuex/dist/vuex.mjs";
+import ModalRegistration from "./components/Modals/ModalRegistration.vue";
+import ErrorLogin from "./components/Modals/ErrorLogin.vue";
+import RBlock from './components/RBlock.vue';
+import Block768 from './components/Block768.vue';
+import LinksBlock from "./components/LinksBlock.vue";
+
+
 export default {
     name: "App",
-    components: {CitySelect, Block, Header}
+    components: {ErrorLogin, ModalRegistration, CitySelect, Block, Header, Header768, LBlock, RBlock, Block768, LinksBlock},
+
+    data(){
+        return{
+            newsVisible: true,
+            showHeader768:false,
+            showBlock768:false,
+            LinksBlockVisible:false
+        }
+
+    },
+    created() {
+        window.addEventListener('resize', this.onResize);
+        this.onResize();
+    },
+
+    computed:{
+        ...mapState('auth', ['state'], 'displayingElements', ['state'], 'composition', ['state']),
+        ...mapGetters('auth', ['isAdmin']),
+
+        visibleNews(){
+            return this.$store.state.displayingElements.blockNews
+        },
+
+        modalRegistration(){
+            return this.$store.getters['displayingElements/modalRegistration']
+        },
+
+        errorReg(){
+            return this.$store.getters['displayingElements/errorReg']
+        }
+
+    },
+    watch:{
+        state: function () {
+            this.isModalVisible = this.$store.state.modalRegistration
+        },
+
+        visibleNews: function (){
+            this.newsVisible = this.$store.state.displayingElements.blockNews
+        },
+
+    },
+    methods: {
+        onResize() {
+        this.showHeader = window.outerWidth>1050;
+        this.showHeader768 = window.outerWidth<=1050;
+        this.showBlock768 = window.outerWidth<=1050;
+        this.showLBlock = window.outerWidth>1050;
+        this.showRBlock = window.outerWidth>1050;
+        this.newsVisible =window.outerWidth>1050;
+        this.LinksBlockVisible =window.outerWidth<=1050;
+    },
+        ...mapActions('auth', ['login', 'adminEnter',],
+            'composition', ['counterBooks', 'allBooks'],
+            'contest', ['addAllContests']),
+
+        showModal(){
+            this.$store.dispatch('showModalRegistration', true)
+            this.isModalVisible = this.$store.state.modalRegistration
+        },
+
+        getContests(){
+            axios.get('/getAllContests').then((response) => {
+                this.$store.dispatch('contest/addAllContests', response.data)
+            })
+        },
+
+        reloadAuth(){
+            let payload = {
+                idAuthor: sessionStorage.getItem("idUser"),
+                authorName: sessionStorage.getItem("authorName"),
+                login: sessionStorage.getItem("login"),
+                oldId: sessionStorage.getItem("oldId"),
+                idRole: Number(sessionStorage.getItem("idRole"))
+            };
+
+            let booksPayload = {
+                countBooks:  Number(sessionStorage.getItem("countBooks")),
+                book: JSON.parse(sessionStorage.getItem("books"))
+            }
+
+            this.$store.dispatch('auth/login', payload)
+            this.$store.dispatch('composition/allBooks', booksPayload)
+
+            let isAdmin = sessionStorage.getItem("isAdmin")
+
+            if (payload.idRole === 1){
+                this.$store.dispatch('auth/adminEnter', true)
+            }
+        },
+
+    },
+
+
+
+    beforeMount() {
+        this.reloadAuth();
+        this.getContests();
+    }
 }
 </script>
 
@@ -172,15 +146,16 @@ body {
     margin: 0 auto;
     background-color: #c6dcf2;
     font-family: Montserrat, sans-serif;
+    max-width: 1600px;
+
 }
 
 .container {
     margin: 0 auto;
-    width: 1400px;
-    /*border: 1px solid red;*/
-    padding: 20px 10px;
+    max-width: 1400px;
+    /* border: 1px solid red; */
+    padding: 20px 5px;
     /* background-color: rgb(5, 134, 163); */
-
 }
 
 li {
@@ -455,5 +430,61 @@ h4 {
 .link-block-title:not(:last-child) {
     border-bottom: 2px solid white;
 }
+.router-view{
+        width: 100%;
+    }
+
+@media (max-width: 760px){
+    body{
+        max-width: 100%;
+    }
+    .container{
+        width: 100%;
+    }
+    .router-view{
+        width: 100%;
+    }
+}
+
+@media (max-width: 450px) {
+    body{
+        width: 100%;
+    }
+    .container{
+        width: 100%;
+    }
+    .router-view{
+        width: 100%;
+    }
+
+}
+@media (max-width: 370px) {
+    body{
+        width: 100%;
+    }
+    .container{
+        width: 100%;
+    }
+    .router-view{
+        width: 100%;
+    }
+
+}
+@media (max-width: 320px) {
+    body{
+        width: 100%;
+    }
+    .container{
+        width: 100%;
+    }
+    .router-view{
+        width: 100%;
+    }
+
+}
+
+
+
+
 
 </style>
